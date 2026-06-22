@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrandBlue - Contacto</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        .calc-overlay {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 580px;
+            max-height: 90vh;
+            overflow-y: auto;
+            background: #fff;
+            border-radius: 14px;
+            padding: 36px 30px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+            z-index: 1000;
+            font-family: inherit;
+        }
+
+        .calc-overlay h2 {
+            color: #023e8a;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .calc-overlay > p {
+            text-align: center;
+            color: #555;
+            margin-bottom: 24px;
+            font-size: 0.95em;
+        }
+
+        .calc-montos-fijos {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 22px;
+        }
+
+        .montoFijo {
+            padding: 10px 20px;
+            border: 2px solid #0077b6;
+            background: transparent;
+            color: #0077b6;
+            border-radius: 6px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .montoFijo:hover,
+        .montoFijo.seleccionado {
+            background: #0077b6;
+            color: #fff;
+        }
+        .calc-input-grupo {
+            text-align: center;
+            margin-bottom: 22px;
+        }
+
+        .calc-input-grupo label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .calc-input-grupo input {
+            padding: 10px 14px;
+            border: 2px solid #0077b6;
+            border-radius: 6px 0 0 6px;
+            font-size: 1em;
+            width: 160px;
+            outline: none;
+        }
+
+        .calc-input-grupo button {
+            padding: 10px 16px;
+            background: #0077b6;
+            color: white;
+            border: none;
+            border-radius: 0 6px 6px 0;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .calc-input-grupo button:hover {
+            background: #023e8a;
+        }
+
+        .calc-resultado {
+            margin-bottom: 22px;
+            animation: calcFadeIn 0.35s ease;
+        }
+
+        @keyframes calcFadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .calc-resultado-titulo {
+            text-align: center;
+            font-weight: bold;
+            color: #023e8a;
+            margin-bottom: 14px;
+        }
+
+        .calc-cards {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .calc-card {
+            flex: 1;
+            min-width: 140px;
+            padding: 18px 14px;
+            border-radius: 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .calc-coral {
+            background: #e0f7f4;
+            border: 2px solid #48cae4;
+        }
+
+        .calc-basura {
+            background: #fff3e0;
+            border: 2px solid #f4a261;
+        }
+
+        .calc-numero {
+            font-size: 2em;
+            font-weight: bold;
+            color: #023e8a;
+        }
+
+        .calc-etiqueta {
+            font-size: 0.88em;
+            color: #444;
+        }
+
+        .calc-equivalencia {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 0.88em;
+            color: #666;
+            font-style: italic;
+        }
+
+        #hacerDonacion {
+            display: block;
+            width: 100%;
+            padding: 13px;
+            background: #0077b6;
+            color: white;
+            font-size: 1.05em;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            transition: background 0.2s;
+
+        }
+
+        #hacerDonacion:hover {
+            background: #023e8a;
+        }
+
+        #cerrar {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: transparent;
+            color: #888;
+            font-size: 0.95em;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        #cerrar:hover {
+            border-color: #0077b6;
+            color: #0077b6;
+        }
+
+        .calc-overlay h2 + p {
+            margin-bottom: 12px;
+        }
+
+        #volverHome {
+            display: block;
+            width: 100%;
+            padding: 13px;
+            background: #0077b6;
+            color: white;
+            font-size: 1.05em;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.2s;
+        }
+
+        #volverHome:hover {
+            background: #023e8a;
+        }
+        #donar {
+    padding: 16px 40px;
+    font-size: 1.2em;
+    }
+    </style>
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <ul class="menu" id="menu">
+        <li><a href="index.html">INICIO</a></li>
+        <li><a href="about.html">NOSOTROS</a></li>
+        <li><a href="servicios.html">SERVICIOS</a></li>
+        <li><a href="padi.html">PADI</a></li>
+        <li><a href="contacto.html" class="activo">CONTACTO</a></li>
+    </ul>
+
+    <div class="hero hero-chico" style="background-image: url('https://images.unsplash.com/photo-1582967788606-a171c1080cb0?w=1600');">
+        <div class="hero-texto">
+            <h1>Contacto</h1>
+            <p class="eslogan">Ponete en contacto con nosotros.</p>
+        </div>
+    </div>
+
+   
+    <div class="seccion">
+        <h2>Información</h2>
+        <br>
+        <div class="tarjetas">
+            <div class="tarjeta">
+                <h3>Email</h3>
+                <p>info@grandblue.org</p>
+            </div>
+            <div class="tarjeta">
+                <h3>Teléfono</h3>
+                <p>+54 11 0000-0000</p>
+            </div>
+            <div class="tarjeta">
+                <h3>Sede</h3>
+                <p>Buenos Aires, Argentina</p>
+            </div>
+            <div class="tarjeta">
+                <h3>Horario</h3>
+                <p>Lun a Vie de 9 a 18 hs</p>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="seccion fondo-claro">
+        <h2>Hacé tu donación</h2>
+        <p style="max-width: 600px; margin: 0 auto 30px; text-align: center;">
+            Cada peso cuenta. Calculá cuánto impacto podés generar con tu aporte.
+        </p>
+        <div style="text-align: center;">
+            <button id="donar" onclick="abrirCalculadora()">Donar</button>
+        </div>
+    </div>
+
+    <div class="seccion">
+        <h2>Seguinos en redes</h2>
+        <br>
+        <ul style="list-style: none; padding: 10px;">
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">YouTube</a></li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 GrandBlue - Todos los derechos reservados</p>
+        <p>TP Nro.2 - Diseño y Desarrollo Web - UADE</p>
+    </div>
+
+</body>
+</html>

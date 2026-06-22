@@ -1,0 +1,285 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ade8f4;
+    color: #333;
+}
+
+/* ===================================
+   MENU DE NAVEGACION
+   =================================== */
+.menu {
+    background-color: #023e8a;
+    text-align: center;
+    padding: 12px;
+    list-style: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: background-color 0.3s;
+}
+
+/* Cuando se hace scroll, el menu se vuelve mas oscuro */
+.menu.scrolleado {
+    background-color: #03045e;
+    padding: 8px;
+}
+
+.menu li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.menu a:hover {
+    background-color: #00b4d8;
+}
+
+.menu a.activo {
+    background-color: #0077b6;
+}
+
+/* ===================================
+   HERO (seccion con imagen de fondo)
+   =================================== */
+.hero {
+    height: 100vh;
+    background-image: url('https://images.unsplash.com/photo-1530053969600-caed2596d242?w=1600');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    margin-top: 50px;
+}
+
+/* Capa oscura encima de la imagen para que se lea el texto */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(2, 62, 138, 0.5);
+}
+
+.hero-chico {
+    height: 40vh;
+}
+
+.hero-texto {
+    position: relative;
+    color: white;
+    padding: 20px;
+    z-index: 1;
+}
+
+.hero-texto h1 {
+    font-size: 60px;
+    background-color: transparent;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.hero-chico .hero-texto h1 {
+    font-size: 40px;
+}
+
+.eslogan {
+    font-size: 22px;
+    font-style: italic;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+/* ===================================
+   SECCIONES
+   =================================== */
+.seccion {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.seccion h2 {
+    background-color: #0077b6;
+    color: white;
+    padding: 12px;
+    display: inline-block;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.seccion h3 {
+    color: #023e8a;
+    margin: 10px 0;
+}
+
+.fondo-claro {
+    background-color: #caf0f8;
+}
+
+/* ===================================
+   TARJETAS
+   =================================== */
+.tarjetas {
+    display: block;
+    text-align: center;
+}
+
+.tarjeta {
+    display: inline-block;
+    width: 280px;
+    background-color: white;
+    margin: 10px;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    vertical-align: top;
+    transition: transform 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+}
+
+.tarjeta h3 {
+    color: #023e8a;
+    margin-bottom: 10px;
+}
+
+.tarjeta p {
+    color: #555;
+}
+
+/* ===================================
+   BOTON
+   =================================== */
+.boton {
+    display: inline-block;
+    background-color: #00b4d8;
+    color: white;
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.boton:hover {
+    background-color: #023e8a;
+    color: white;
+}
+
+/* ===================================
+   TABLAS
+   =================================== */
+table {
+    border-collapse: collapse;
+    background-color: white;
+}
+
+th {
+    background-color: #0077b6;
+    color: white;
+    padding: 10px;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+/* ===================================
+   LISTAS DE DETALLE
+   =================================== */
+.lista-detalle {
+    list-style: none;
+    text-align: left;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.lista-detalle li {
+    background-color: white;
+    margin: 8px 0;
+    padding: 10px;
+    border-left: 4px solid #00b4d8;
+    border-radius: 5px;
+}
+
+/* ===================================
+   FORMULARIO
+   =================================== */
+.formulario {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.formulario label {
+    font-weight: bold;
+    color: #023e8a;
+}
+
+.formulario input[type="text"],
+.formulario input[type="email"],
+.formulario select,
+.formulario textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #0077b6;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+}
+
+.formulario input:focus,
+.formulario select:focus,
+.formulario textarea:focus {
+    outline: none;
+    border-color: #00b4d8;
+}
+
+/* ===================================
+   FOOTER
+   =================================== */
+.footer {
+    background-color: #03045e;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+.footer p {
+    margin: 5px 0;
+}
