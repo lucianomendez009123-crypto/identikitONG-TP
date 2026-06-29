@@ -10,32 +10,6 @@ window.addEventListener("scroll", function() {
 });
 
 
-function enviarFormulario(event) {
-    event.preventDefault(); 
-
-
-    let nombre = document.getElementById("nombre").value;
-    let email = document.getElementById("email").value;
-    let mensaje = document.getElementById("mensaje").value;
-
-
-    if (nombre === "" || email === "" || mensaje === "") {
-        alert("Por favor completá los campos obligatorios.");
-        return;
-    }
-
-
-    document.getElementById("mensajeExito").style.display = "block";
-    document.querySelector(".formulario").reset();
-
-
-    setTimeout(function() {
-        document.getElementById("mensajeExito").style.display = "none";
-    }, 5000);
-}
-
-
-
 function abrirCalculadora() {
 
 
@@ -96,8 +70,8 @@ function abrirCalculadora() {
     let botonCerrar         = nuevoDiv.querySelector("#cerrar");
 
 
-    let CORALES_POR_PESO = 5200  / 2000000; // aprox 0.0026 corales por peso
-    let BASURA_POR_PESO  = 12000 / 2000000; // aprox 0.006 kg por peso
+    let CORALES_POR_PESO = 5200  / 2000000;
+    let BASURA_POR_PESO  = 12000 / 2000000;
 
 
     function calcularImpacto(monto) {
